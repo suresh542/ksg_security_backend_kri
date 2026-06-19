@@ -1,0 +1,21 @@
+{
+  "name": "ksg-backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/suresh542/ksg_security_backend_kri#readme",
+  "bugs": {
+    "url": "https://github.com/suresh542/ksg_security_backend_kri/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suresh542/ksg_security_backend_kri.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "route.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  }
+}
