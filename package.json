@@ -17,6 +17,7 @@
   "scripts": {
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
+    "server": "node src/server.js",
     "lint": "echo \"No linter configured\""
   },
   "dependencies": {

@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "functions": {
+    "api/contact.js": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/contact",
+      "dest": "/api/contact.js",
+      "methods": ["POST", "OPTIONS"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/contact.js"
+    }
+  ]
+}
