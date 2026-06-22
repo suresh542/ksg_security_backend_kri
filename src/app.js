@@ -1,6 +1,7 @@
+import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
-import contactRouter from './api/contact/route.js'
+import contactRouter from './src/api/contact/route.js'
 
 const app = express()
 
@@ -8,8 +9,12 @@ app.use(cors())
 app.use(express.json())
 app.use('/api/contact', contactRouter)
 
-app.get('/', (req, res) => {
-  res.json({ success: true, message: 'KSG Security backend is running.' })
-})
+// Keep this for local development
+const port = process.env.PORT || 3000
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`)
+  })
+}
 
-export default app
+export default app  
