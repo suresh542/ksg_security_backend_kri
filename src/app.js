@@ -1,20 +1,13 @@
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
-import contactRouter from './src/api/contact/route.js'
+import contactRouter from './api/contact/route.js'
 
 const app = express()
 
-app.use(cors())
+app.use(cors({ origin: '*', methods: ['GET', 'POST', 'OPTIONS'], allowedHeaders: ['Content-Type', 'Authorization'] }))
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use('/api/contact', contactRouter)
 
-// Keep this for local development
-const port = process.env.PORT || 3000
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`)
-  })
-}
-
-export default app  
+export default app

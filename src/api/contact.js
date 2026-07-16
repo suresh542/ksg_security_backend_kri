@@ -1,17 +1,17 @@
 import nodemailer from 'nodemailer'
 
 export default async function handler(req, res) {
-  // CORS headers — allow your frontend domain
+  // CORS headers — allow the frontend to call this API from the browser
   res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+  res.setHeader('Access-Control-Max-Age', '86400')
 
-  // Handle preflight
   if (req.method === 'OPTIONS') {
-    return res.status(200).end()
+    return res.status(204).end()
   }
 
-  if (req.method !== 'POST') {
+  if (req.method !== 'POST' && req.method !== 'GET') {
     return res.status(405).json({ success: false, message: 'Method not allowed.' })
   }
 
